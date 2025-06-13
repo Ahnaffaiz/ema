@@ -6,7 +6,7 @@
 
 <!-- Vite Assets - includes all SCSS and CSS files for hot reloading -->
 @vite([
-    'resources/css/app.css', 
+    'resources/css/app.css',
     'resources/js/app.js',
     'public/assets/scss/icons.scss',
     'public/assets/scss/tailwind.scss'
