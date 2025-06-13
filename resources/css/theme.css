@@ -1,0 +1,82 @@
+/* Import theme fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Theme-specific base styles */
+@layer base {
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: theme('colors.gray.50');
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/* Theme components */
+@layer components {
+  /* Button component styles from theme */
+  .btn-primary {
+    @apply bg-violet-500 hover:bg-violet-600 text-white transition-colors duration-200;
+  }
+
+  .btn-success {
+    @apply bg-green-500 hover:bg-green-600 text-white transition-colors duration-200;
+  }
+
+  .btn-info {
+    @apply bg-sky-500 hover:bg-sky-600 text-white transition-colors duration-200;
+  }
+
+  .btn-warning {
+    @apply bg-yellow-500 hover:bg-yellow-600 text-white transition-colors duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white transition-colors duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply relative flex flex-col min-w-0 break-words bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-md;
+  }
+
+  .card-header {
+    @apply p-5 border-b border-gray-100 dark:border-zinc-700;
+  }
+
+  .card-body {
+    @apply p-5 flex-auto;
+  }
+
+  .card-footer {
+    @apply p-5 border-t border-gray-100 dark:border-zinc-700;
+  }
+}
+
+/* Theme utilities */
+@layer utilities {
+  .bg-sidebar {
+    @apply bg-zinc-800;
+  }
+
+  .bg-topbar {
+    @apply bg-white border-b border-gray-100;
+  }
+}
+
+/* Dark mode compatibility */
+.dark .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+.dark .bg-white {
+  background-color: #27272a !important;
+}

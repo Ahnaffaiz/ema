@@ -1,0 +1,51 @@
+/**
+ * Animation Fix for Dropdowns
+ * Provides smoother transitions for dropdown menus
+ */
+
+/* Smooth dropdown animation */
+.dropdown-menu,
+.submenu,
+.sidebar-dropdown {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.98);
+  transition: transform 0.25s ease-out, opacity 0.25s ease-out, visibility 0.25s;
+  will-change: transform, opacity;
+  transform-origin: top center;
+  backface-visibility: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu.show,
+.submenu.show,
+.sidebar-dropdown.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+/* Sidebar specific dropdown animation */
+.sidebar .nav-item .dropdown-menu {
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Sidebar dropdown arrow animation */
+.sidebar .dropdown-toggle::after,
+.sidebar .nav-link[data-bs-toggle="collapse"]::after {
+  transition: transform 0.2s ease;
+}
+
+.sidebar .dropdown-toggle[aria-expanded="true"]::after,
+.sidebar .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+/* Accordion animation for sidebar menu */
+.sidebar .collapse {
+  transition: height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover effects for menu items */
+.sidebar .nav-link:hover {
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}

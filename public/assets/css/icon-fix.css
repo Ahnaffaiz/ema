@@ -1,0 +1,152 @@
+/**
+ * Icon Path Fix - Corrects the paths to font files
+ */
+
+/* Font Awesome */
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../build/fa-brands-400-B9NtTMAN.woff2") format("woff2"),
+       url("../build/fa-brands-400-BvOfcHLm.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../build/fa-regular-400-BxYFLS9j.woff2") format("woff2"),
+       url("../build/fa-regular-400-CcXn14M0.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../build/fa-solid-900-DQndEtzL.woff2") format("woff2"),
+       url("../build/fa-solid-900-v_-DUAvR.ttf") format("truetype");
+}
+
+/* Material Design Icons */
+@font-face {
+  font-family: 'Material Design Icons';
+  src: url("../build/materialdesignicons-webfont-BQCa5tJF.eot?v=7.1.96");
+  src: url("../build/materialdesignicons-webfont-BQCa5tJF.eot?#iefix&v=7.1.96") format("embedded-opentype"),
+       url("../build/materialdesignicons-webfont-DNASE6E2.woff2?v=7.1.96") format("woff2"),
+       url("../build/materialdesignicons-webfont-C511NGqJ.woff?v=7.1.96") format("woff"),
+       url("../build/materialdesignicons-webfont-Cn62PbgK.ttf?v=7.1.96") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Dripicons */
+@font-face {
+  font-family: 'dripicons-v2';
+  src: url("../build/dripicons-v2-DFvnbGWz.eot");
+  src: url("../build/dripicons-v2-DFvnbGWz.eot?#iefix") format("embedded-opentype"),
+       url("../build/dripicons-v2-DRZ43psE.woff") format("woff"),
+       url("../build/dripicons-v2-OmeD2O4i.ttf") format("truetype"),
+       url("../build/dripicons-v2-D_nGVhpE.svg#dripicons-v2") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Boxicons */
+@font-face {
+  font-family: 'boxicons';
+  src: url("../build/boxicons-C8r6q44h.eot");
+  src: url("../build/boxicons-C8r6q44h.eot") format("embedded-opentype"),
+       url("../build/boxicons-BEEz6bJ9.woff2") format("woff2"),
+       url("../build/boxicons-C6DWEaMA.woff") format("woff"),
+       url("../build/boxicons-Be0Z6iRa.ttf") format("truetype"),
+       url("../build/boxicons-D28aUMHy.svg#boxicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Fallback measures to ensure icons are displayed */
+.fa, .fas, .far, .fab {
+  font-family: "Font Awesome 6 Free", sans-serif !important;
+  font-weight: 900;
+}
+
+.far {
+  font-weight: 400 !important;
+}
+
+.fab {
+  font-family: "Font Awesome 6 Brands", sans-serif !important;
+}
+
+.mdi {
+  font-family: 'Material Design Icons', sans-serif !important;
+}
+
+.dripicons {
+  font-family: 'dripicons-v2', sans-serif !important;
+}
+
+.bx {
+  font-family: 'boxicons', sans-serif !important;
+}
+
+/* Fix for icon vertical alignment */
+i.fa, i.fas, i.far, i.fab, i.mdi, i.dripicons, i.bx {
+  vertical-align: middle;
+}
+
+/* Avatar and Image Fixes */
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  position: relative;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+.avatar-sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.avatar-md {
+  width: 3rem;
+  height: 3rem;
+}
+
+.avatar-lg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.avatar-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar-group .avatar {
+  margin-left: -0.5rem;
+  border: 2px solid white;
+  box-sizing: content-box;
+}
+
+.avatar-group .avatar:first-child {
+  margin-left: 0;
+}
+
+/* Fix for profile dropdown avatar */
+.profile-user-dropdown img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
