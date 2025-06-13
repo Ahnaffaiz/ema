@@ -19,10 +19,11 @@ export default defineConfig({
                 'resources/**/*.vue',
                 'resources/**/*.css',
                 'resources/**/*.scss',
-                'app/Http/Livewire/**',
-                'app/View/Components/**',
-                'routes/**/*.php'
+                'app/**/*.php',
+                'routes/**/*.php',
+                'public/assets/scss/**/*.scss'
             ],
+            detectTls: false,
         }),
         {
             name: 'compile-scss-to-css',
@@ -41,6 +42,51 @@ export default defineConfig({
                 });
             }
         },
+        {
+            name: 'laravel-hot-reload',
+            handleHotUpdate({ file, server }) {
+                if (file.includes('.blade.php') || file.includes('.scss') || file.includes('.css')) {
+                    server.ws.send({
+                        type: 'full-reload',
+                        path: '*'
+                    });
+                }
+            }
+        },
+        {
+            name: 'suppress-asset-warnings',
+            configureServer(server) {
+                const originalWarn = console.warn;
+                console.warn = (...args) => {
+                    const message = args.join(' ');
+                    if (message.includes('/assets/fonts/') ||
+                        message.includes('/assets/images/') ||
+                        message.includes("didn't resolve at build time")) {
+                        return; // Suppress these warnings
+                    }
+                    originalWarn.apply(console, args);
+                };
+            },
+            buildStart() {
+                const originalWarn = this.warn;
+                this.warn = (warning) => {
+                    if (typeof warning === 'string') {
+                        if (warning.includes('/assets/fonts/') ||
+                            warning.includes('/assets/images/') ||
+                            warning.includes("didn't resolve at build time")) {
+                            return;
+                        }
+                    } else if (warning.message) {
+                        if (warning.message.includes('/assets/fonts/') ||
+                            warning.message.includes('/assets/images/') ||
+                            warning.message.includes("didn't resolve at build time")) {
+                            return;
+                        }
+                    }
+                    originalWarn.call(this, warning);
+                };
+            }
+        },
         copy({
             targets: [
                 {
@@ -51,6 +97,14 @@ export default defineConfig({
             hook: 'buildEnd'
         })
     ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                silenceDeprecations: ['import', 'global-builtin', 'color-4-api', 'legacy-js-api'],
+                quietDeps: true
+            }
+        }
+    },
     build: {
         outDir: 'public',
         emptyOutDir: false,
@@ -65,16 +119,28 @@ export default defineConfig({
                 },
                 entryFileNames: 'assets/build/[name]-[hash].js',
                 chunkFileNames: 'assets/build/[name]-[hash].js',
+            },
+            onwarn: (warning, warn) => {
+                // Suppress warnings about unresolved assets that exist at runtime
+                if (warning.code === 'UNRESOLVED_IMPORT' &&
+                    (warning.message.includes('/assets/fonts/') ||
+                     warning.message.includes('/assets/images/'))) {
+                    return;
+                }
+                warn(warning);
             }
         }
     },
     server: {
         hmr: {
             host: 'localhost',
+            port: 5173,
         },
+        host: true,
+        port: 5173,
         watch: {
             usePolling: true,
-            interval: 1000,
+            interval: 100,
         }
     },
     resolve: {

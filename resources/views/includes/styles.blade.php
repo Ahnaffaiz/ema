@@ -3,12 +3,14 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="{{ asset('./assets/css/swiper-bundle.css') }}">
-<link rel="stylesheet" href="{{ asset('./assets/css/icons.css') }}">
-<link rel="stylesheet" href="{{ asset('./assets/css/icon-fix.css') }}">
-<link rel="stylesheet" href="{{ asset('./assets/css/tailwind.css') }}">
 
-<!-- Vite Assets -->
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+<!-- Vite Assets - includes all SCSS and CSS files for hot reloading -->
+@vite([
+    'resources/css/app.css', 
+    'resources/js/app.js',
+    'public/assets/scss/icons.scss',
+    'public/assets/scss/tailwind.scss'
+])
 
 @livewireStyles
 @stack('styles')

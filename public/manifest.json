@@ -1,4 +1,24 @@
 {
+  "public/assets/fonts/boxicons.eot": {
+    "file": "assets/build/boxicons-CSrLvhY_.eot",
+    "src": "public/assets/fonts/boxicons.eot"
+  },
+  "public/assets/fonts/boxicons.svg": {
+    "file": "assets/build/boxicons-Dp7W9qN3.svg",
+    "src": "public/assets/fonts/boxicons.svg"
+  },
+  "public/assets/fonts/boxicons.ttf": {
+    "file": "assets/build/boxicons-EIQNrSje.ttf",
+    "src": "public/assets/fonts/boxicons.ttf"
+  },
+  "public/assets/fonts/boxicons.woff": {
+    "file": "assets/build/boxicons-CTVby2V1.woff",
+    "src": "public/assets/fonts/boxicons.woff"
+  },
+  "public/assets/fonts/boxicons.woff2": {
+    "file": "assets/build/boxicons-CeGEncwm.woff2",
+    "src": "public/assets/fonts/boxicons.woff2"
+  },
   "public/assets/fonts/dripicons-v2.eot": {
     "file": "assets/build/dripicons-v2-DFvnbGWz.eot",
     "src": "public/assets/fonts/dripicons-v2.eot"
@@ -54,6 +74,18 @@
   "public/assets/fonts/materialdesignicons-webfont.woff2": {
     "file": "assets/build/materialdesignicons-webfont-DNASE6E2.woff2",
     "src": "public/assets/fonts/materialdesignicons-webfont.woff2"
+  },
+  "public/assets/images/bg-1.jpg": {
+    "file": "assets/build/bg-1-BJLbdnnf.jpg",
+    "src": "public/assets/images/bg-1.jpg"
+  },
+  "public/assets/images/bg-2.jpg": {
+    "file": "assets/build/bg-2-dv1uQLdi.jpg",
+    "src": "public/assets/images/bg-2.jpg"
+  },
+  "public/assets/images/bg-3.jpg": {
+    "file": "assets/build/bg-3-CRnx1AkG.jpg",
+    "src": "public/assets/images/bg-3.jpg"
   },
   "public/assets/scss/icons.scss": {
     "file": "assets/css/icons.css",
